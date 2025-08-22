@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 //the userRouter which is imported above in line 6 would be called below
 app.use("/api/auth", userRouter);
-app.use("/api/auth", propertyRouter);
+app.use("/api/property", propertyRouter);
 
 //error handling routes
 app.use((req, res) => {

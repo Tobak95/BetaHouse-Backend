@@ -2,7 +2,6 @@
 
 const USER = require("../models/users");
 const bcrypt = require("bcrypt");
-const generateToken = require("../helpers/generateToken");
 const jwt = require("jsonwebtoken");
 
 const handleRegister = async (req, res) => {
@@ -26,10 +25,6 @@ const handleRegister = async (req, res) => {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    //verify process
-    const verificationToken = generateToken();
-    const verificationTokenExpires = Date.now() + 24 * 60 * 60 * 1000;
-    //save to database
     const user = await USER.create({
       firstName,
       lastName,
