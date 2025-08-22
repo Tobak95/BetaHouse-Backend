@@ -30,8 +30,7 @@ const handleRegister = async (req, res) => {
       lastName,
       email,
       password: hashedPassword,
-      verificationToken,
-      verificationTokenExpires,
+      
     });
 
     return res
