@@ -15,8 +15,6 @@ const handleRegister = async (req, res) => {
       $or: [{ email: email || null }],
     });
 
-    console.log(firstName, lastName, email, password);
-
     if (alreadyExistingUser) {
       return res.status(400).json({ message: "Email already exist" });
     }
@@ -30,7 +28,6 @@ const handleRegister = async (req, res) => {
       lastName,
       email,
       password: hashedPassword,
-      
     });
 
     return res
